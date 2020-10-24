@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+
+    h1= title
+    p
+        a.button(href='/books/new') Create New Book
+    form(method='post', action='/books')
+        p
+            input(name='search', type='text')
+            button.button(name='submit', value='search') Search
+    table
+        thead
+            tr
+                th Title
+                th Author
+                th Genre
+                th Year
+        tbody
+            each book, index in books
+                if index >= offset && index < limit
+                    tr
+                        td
+                            a(href=`/books/${book.id}`)= book.title
+                        td= book.author
+                        td= book.genre 
+                        td= book.year
+        
+    include _paginate

@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  include form
+  h1= title
+
+  include errors
+
+  form(action="/books/new", method="post")
+    +form('Create New Book')

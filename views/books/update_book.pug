@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  include form
+  h1= title
+  form
+
+  include errors
+
+  form(action=`/books/${book.id}`, method="post")
+    +form('Update Book')
+  
+  form(action=`/books/${book.id}/delete` method='post' onSubmit="return confirm('Do you really want to delete this book?')")
+
+    p
+      input(href=`/books/${book.id}/delete` type='submit' value='Delete Book')

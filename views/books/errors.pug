@@ -1,0 +1,6 @@
+if(errors)
+  h2.errors Make sure to enter all of the required information!
+  ul.errors
+    each error in errors
+      li
+        =error.message
